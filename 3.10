@@ -1,0 +1,24 @@
+
+### 生产者发消息:
+#### Topic:xyj-test-topic
+#### Group: xyj-test-producer
+#### Nameserver: 47.102.136.138:9876
+#### 总共发送十条消息
+![](resourses/img_0.png)
+
+### 消费者消费消息:
+#### Topic: xyj-test-topic
+#### Group: xyj-test-consumer
+#### Nameserver: 47.102.136.138:9876
+![](resourses/img_1.png)
+
+### 可视化工具查看消息:
+Xyj-test-topic 下共十条消息
+![](resourses/img_2.png)
+
+
+Xyj-text-consumer 总共成功消费 10 条消息
+![](resourses/img_3.png)
+
+消息详细内容
+![](resourses/img_4.png)
