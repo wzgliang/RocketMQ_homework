@@ -1,0 +1,36 @@
+# 
+
+### 
+
+### Q1: 为什么Demo里面没有创建Topic，却可以使用？
+
+### A：
+
+- 分析过程
+    - 新建producer时，调用了DefaultMQProducer的构造方法
+
+![](resourses/img_6.png)
+    - 一路点进去：
+
+![](resourses/img_7.png)
+![](resourses/img_8.png)
+    - 可以看到这便是demo中新建DefaultMQProducer时最终调用的构造方法，查看DefaultMQProducer的成员变量
+![](resourses/img_9.png)
+    - 发现createTopicKey给了初始默认值:AUTO_CREATE_TOPIC_KEY_TOPIC;点进这个枚举值所在的类，发现这个值有注释说明：
+![](resourses/img_10.png)
+    - 而且我们可以看到构造函数中还初始化了一个DefaultMQProducerImpl的对象，点进去发现这个类有一个哈希表类型的成员变量topicPublishInfoTable, key值正是topic，value值是topicPublishInfo,
+![](resourses/img_11.png)
+    - 由此我们可以猜测，当isAutoCreateTopicEnable为true时，broker会自动生成一个“TBW102”的topic，而DefaultMQproducer的topic指定的正是”TBW102”
+- 猜想印证：
+    - 当producer启动时，
+    ![](resourses/img_12.png)
+    - 一路点进去观察还会有哪些线程启动
+    ![](resourses/img_13.png)
+    ![](resourses/img_14.png)
+    - 发现在DefaultMQProducer调用start方法的过程中，DefaultMQProducerImpl 也会调用start方法，在这个方法中，topicPublicInfoTable插入了一个pair，key就是this.defaultMQProducer.getCreateTopicKey()，也就是上述producer初始化时给定的topic
+- 总结：
+
+  producer初始化时若不指定topic会默认指定一个topic为AUTO_CREATE_TOPIC_KEY_TOPIC，如果没有修改isAutoCreateTopicEnable，则broker会默认生成一个AUTO_CREATE_TOPIC_KEY_TOPIC的topic，由此，即便我们创建producer时不指定topic也能成功运行
+
+
+### Q2 元数据的生命周期图
