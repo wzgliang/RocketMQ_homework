@@ -1,0 +1,10 @@
+{"name":"张三","class":"3班","subject":"数学","score":90}
+{"name":"张三","class":"3班","subject":"英语","score":91}
+{"name":"张三","class":"3班","subject":"地理","score":99}
+{"name":"李四","class":"3班","subject":"语文","score":92}
+{"name":"李四","class":"3班","subject":"政治","score":97}
+{"name":"王五","class":"3班","subject":"语文","score":93}
+{"name":"王五","class":"3班","subject":"政治","score":99}
+
+
+
