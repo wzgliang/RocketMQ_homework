@@ -8,7 +8,7 @@
 
 #### producer
 
-![image-20220311225237602](C:\Users\wind1011\AppData\Roaming\Typora\typora-user-images\image-20220311225237602.png)
+![image-20220625202200930](RocketMQ_Demo_Swn.assets/image-20220625202200930.png)
 
 
 
@@ -47,7 +47,7 @@
 
 #### consumer
 
-![image-20220311230525989](C:\Users\wind1011\AppData\Roaming\Typora\typora-user-images\image-20220311230525989.png)
+![image-20220625202215911](RocketMQ_Demo_Swn.assets/image-20220625202215911.png)
 
 ```java
 public static void main(String[] args) throws InterruptedException, MQClientException {
@@ -96,13 +96,13 @@ public static void main(String[] args) throws InterruptedException, MQClientExce
 
 **通过Topic查询发送的Message**
 
-![image-20220311225655472](C:\Users\wind1011\AppData\Roaming\Typora\typora-user-images\image-20220311225655472.png)
+![image-20220625202225321](RocketMQ_Demo_Swn.assets/image-20220625202225321.png)
 
 
 
 **通过MsgId查询Message**
 
-![image-20220311225805403](C:\Users\wind1011\AppData\Roaming\Typora\typora-user-images\image-20220311225805403.png)
+![image-20220625202236687](RocketMQ_Demo_Swn.assets/image-20220625202236687.png)
 
 
 
@@ -112,9 +112,7 @@ public static void main(String[] args) throws InterruptedException, MQClientExce
 
 把消费者打成jar包， 在自己的电脑上同时跑2个进程（也就是执行2次 java -jar xxxxConsumer.jar ), 看看会发生什么现象， 然后解释下可能的原因。
 
-
-
-![image-20220317165823467](D:\Desktop-store\软微\003-研一下课程\开源软件开发与实践\RocketMQ_Demo_Swn.assets\image-20220317165823467.png)
+![image-20220625202307252](RocketMQ_Demo_Swn.assets/image-20220625202307252.png)
 
 
 
